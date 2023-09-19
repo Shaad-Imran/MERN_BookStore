@@ -2,6 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import booksRoute from "./routes/booksRoute.js";
 import cors from "cors";
+import { config as dotenvConfig } from "dotenv";
+
+dotenvConfig();
 
 const app = express();
 
@@ -10,8 +13,6 @@ app.use(express.json());
 
 // Middleware for handling CORS POLICY
 app.use(cors());
-
-require("dotenv").config();
 
 const PORT = process.env.PORT || 5555;
 const mongoDBURL = process.env.mongoDBURL;
